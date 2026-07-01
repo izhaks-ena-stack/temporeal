@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Tempo Real</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="card shadow p-4 rounded-4" style="width: 400px;">
+
+      <h1 class="text-center text-primary mb-3">Tempo Real</h1>
+      <p class="text-center text-secondary mb-4">Controle seu tempo, controle sua vida</p>
+
+      <div id="erroLogin" class="alert alert-danger d-none"></div>
+
+      <input type="email" id="emailLogin" class="form-control mb-3" placeholder="Digite seu email">
+      <input type="password" id="senhaLogin" class="form-control mb-3" placeholder="Digite sua senha">
+
+      <button class="btn btn-primary w-100 mb-3" onclick="login()">Entrar</button>
+      <a href="cadastro.html">
+        <button class="btn btn-outline-primary w-100">Criar Conta</button>
+      </a>
+
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

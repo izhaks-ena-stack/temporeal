@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Tempo Real - Alertas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="css/alertas.css">
+
+</head>
+
+<body class="bg-light">
+
+    <div class="d-flex">
+
+        <div class="bg-white border-end shadow-sm p-4" style="width: 250px; min-height: 100vh; flex-shrink: 0;">
+
+            <h2 class="text-primary mb-5">
+                <i class="bi bi-phone"></i>
+                Tempo Real
+            </h2>
+
+            <ul class="nav flex-column">
+
+                <li class="nav-item mb-3">
+                    <a href="home.html" class="nav-link text-dark">
+                        <i class="bi bi-house"></i>
+                        Início
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
+                    <a href="monitoramento.html" class="nav-link text-dark">
+                        <i class="bi bi-bar-chart"></i>
+                        Monitoramento
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
+                    <a href="tarefas.html" class="nav-link text-dark">
+                        <i class="bi bi-check-square"></i>
+                        Tarefas
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
+                    <a href="cronometro.html" class="nav-link text-dark">
+                        <i class="bi bi-stopwatch"></i>
+                        Cronômetro
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
+                    <a href="alertas.html" class="nav-link active bg-primary text-white rounded">
+                        <i class="bi bi-bell"></i>
+                        Alertas
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
+                    <a href="perfil.html" class="nav-link text-dark">
+                        <i class="bi bi-person-circle"></i>
+                        Perfil
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="mt-4">
+                <hr>
+                <button class="btn btn-outline-danger w-100" onclick="logout()">
+                    <i class="bi bi-box-arrow-right"></i>
+                    Sair
+                </button>
+            </div>
+
+        </div>
+
+        <div id="alertas" class="flex-grow-1 p-4">
+
+            <h2 class="mb-4">
+                <i class="bi bi-bell"></i>
+                Alertas Inteligentes Acadêmicos
+            </h2>
+
+            <div class="row">
+
+                <div class="card p-3 shadow-sm mb-4">
+                    <h3 class="mb-3"><i class="bi bi-bell-fill text-primary"></i> Alertas de Hoje</h3>
+                    <div id="alertasHoje">
+                        <p class="text-muted mb-0"></p>
+                    </div>
+                </div>
+
+                <!-- forms -->
+                <!--<div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4">
+                        <div class="card-header rounded-top-4 bg-primary text-white">
+                            <i class="bi bi-plus-circle"></i>
+                            Cadastro de Alerta
+                        </div>
+
+                        <div class="card-body">
+                            <form id="formAlerta">
+                                <input type="hidden" id="id">
+
+                                <div class="mb-2">
+                                    <label class="form-label">Aluno</label>
+                                    <input type="text" id="aluno" class="form-control" required>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Curso</label>
+                                    <input type="text" id="curso" class="form-control" required>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Tipo</label>
+                                    <select id="tipo" class="form-select">
+                                        <option value="produtividade">Produtividade</option>
+                                        <option value="faltas">Faltas</option>
+                                        <option value="tarefas">Tarefas</option>
+                                        <option value="redesSociais">Redes Sociais</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Nível</label>
+                                    <select id="nivel" class="form-select">
+                                        <option value="baixo">Baixo</option>
+                                        <option value="medio">Médio</option>
+                                        <option value="alto">Alto</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Título</label>
+                                    <input type="text" id="titulo" class="form-control" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Mensagem</label>
+                                    <textarea id="mensagem" class="form-control" rows="3" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="bi bi-floppy"></i>
+                                    Salvar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!-- grafico -->
+                <!--<div class="col-md-8">
+                    <div class="card border-0 shadow-sm rounded-4">
+                        <div class="card-header rounded-top-4">
+                            <i class="bi bi-bar-chart"></i>
+                            Dashboard de Alertas
+                        </div>
+
+                        <div class="card-body" id="graficoContainer">
+                            <canvas id="grafico"></canvas>
+                        </div>
+                    </div>
+                </div>-->
+
+            </div>
+
+            <!--<hr class="my-4">
+
+            <h5 class="mb-3">
+                <i class="bi bi-card-list"></i>
+                Cards de Alertas
+            </h5>
+
+            <div class="row" id="cardsAlertas"></div>
+
+            <hr>-->
+
+            <!-- pesquisa -->
+            <!--<div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" id="pesquisa" class="form-control" placeholder="🔍 Pesquisar aluno...">
+                </div>
+            </div>-->
+
+            <!-- tabela -->
+            <!--<div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header rounded-top-4">
+                    <i class="bi bi-table"></i>
+                    Lista de Alertas
+                </div>
+
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Aluno</th>
+                                <th>Tipo</th>
+                                <th>Nível</th>
+                                <th>Título</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaAlertas"></tbody>
+                    </table>
+                </div>
+            </div>-->
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/alertasInteligentes.js"></script>
+    <!--<script src="js/alertas.js"></script>-->
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+body {
+    background: #f4f6f9;
+}
+
+.card-alerta {
+    transition: 0.3s;
+}
+
+.card-alerta:hover {
+    transform: scale(1.02);
+}
+
+.alto {
+    border-left: 6px solid red;
+}
+
+.medio {
+    border-left: 6px solid orange;
+}
+
+.baixo {
+    border-left: 6px solid green;
+}
+
+#graficoContainer {
+    height: 300px;
+}
+
+div .row {
+    margin-right: 10%;
+}

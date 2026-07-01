@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Tempo Real - Início</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    body { background: #f0f2f5; }
+    .sidebar { width: 250px; min-height: 100vh; flex-shrink: 0; background: #fff; border-right: 1px solid #dee2e6; }
+    .stat-card { border: none; border-radius: 16px; padding: 1.5rem; }
+    .stat-card h1 { font-size: 2.2rem; font-weight: 700; margin: .25rem 0; }
+    .tarefa-item { background: #fff; border-radius: 10px; padding: .9rem 1rem; border-left: 4px solid #0d6efd; margin-bottom: .6rem; }
+    .tarefa-item.prova { border-color: #dc3545; }
+    .sessao-item { font-size: .85rem; padding: .4rem 0; border-bottom: 1px solid #f0f0f0; }
+    .noticia-card { border-radius: 10px; border: none; transition: box-shadow .2s; }
+    .noticia-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+  </style>
+</head>
+<body>
+
+<div class="d-flex">
+
+  <!-- Sidebar -->
+  <div class="sidebar shadow-sm p-4">
+    <h2 class="text-primary mb-5"><i class="bi bi-phone"></i> Tempo Real</h2>
+    <ul class="nav flex-column">
+      <li class="nav-item mb-3">
+        <a href="home.html" class="nav-link active bg-primary text-white rounded">
+          <i class="bi bi-house"></i> Início
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a href="monitoramento.html" class="nav-link text-dark">
+          <i class="bi bi-bar-chart"></i> Monitoramento
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a href="tarefas.html" class="nav-link text-dark">
+          <i class="bi bi-check-square"></i> Tarefas
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a href="cronometro.html" class="nav-link text-dark">
+          <i class="bi bi-stopwatch"></i> Cronômetro
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a href="alertas.html" class="nav-link text-dark">
+          <i class="bi bi-bell"></i> Alertas
+        </a>
+      </li>
+      <li class="nav-item mb-3">
+        <a href="perfil.html" class="nav-link text-dark">
+          <i class="bi bi-person-circle"></i> Perfil
+        </a>
+      </li>
+    </ul>
+    <div class="mt-4">
+      <hr>
+      <button class="btn btn-outline-danger w-100" onclick="logout()">
+        <i class="bi bi-box-arrow-right"></i> Sair
+      </button>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="flex-grow-1 p-4">
+
+    <!-- Cabeçalho -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 id="mensagem" class="mb-0"></h2>
+        <p class="text-secondary mb-0">Controle seu tempo e acompanhe seu desempenho.</p>
+      </div>
+      <a href="perfil.html" class="card border-0 shadow-sm p-3 text-decoration-none text-dark">
+        <div class="d-flex align-items-center gap-3">
+          <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold"
+               id="avatarLetra" style="width:48px;height:48px;font-size:1.4rem">?</div>
+          <div>
+            <strong id="nomeUsuario"></strong>
+            <p class="text-secondary m-0 small" id="tipoUsuario"></p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-3">
+        <div class="card stat-card shadow-sm">
+          <h5 class="text-primary mb-1"><i class="bi bi-check2-square"></i> Tarefas</h5>
+          <h1 id="statTarefas">—</h1>
+          <small id="statTarefasLabel" class="text-muted">carregando...</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card stat-card shadow-sm">
+          <h5 class="text-success mb-1"><i class="bi bi-clock"></i> Horas Estudadas</h5>
+          <h1 id="statHoras">—</h1>
+          <small class="text-muted">em atividades registradas</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card stat-card shadow-sm">
+          <h5 class="text-warning mb-1"><i class="bi bi-bell"></i> Alertas</h5>
+          <h1 id="statAlertas">—</h1>
+          <small id="statAlertasLabel" class="text-muted">carregando...</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card stat-card shadow-sm text-center">
+          <h5 class="text-primary mb-2"><i class="bi bi-stopwatch"></i> Cronômetro</h5>
+          <p class="small text-muted mb-2">Última sessão:<br><span id="ultimaSessao">—</span></p>
+          <a href="cronometro.html" class="btn btn-primary btn-sm">Abrir</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarefas + Alertas -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-7">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0"><i class="bi bi-list-task"></i> Próximas Tarefas</h5>
+            <a href="tarefas.html" class="btn btn-outline-primary btn-sm">Ver todas</a>
+          </div>
+          <div id="listaTarefasHome"><p class="text-secondary small">Carregando...</p></div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0"><i class="bi bi-bell"></i> Alertas</h5>
+            <a href="alertas.html" class="btn btn-outline-warning btn-sm">Ver todos</a>
+          </div>
+          <div id="listaAlertas"><p class="text-secondary small">Carregando...</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Atividades + Notícias -->
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0"><i class="bi bi-activity"></i> Atividades</h5>
+            <a href="monitoramento.html" class="btn btn-outline-success btn-sm">Ver todas</a>
+          </div>
+          <div id="listaAtividadesHome"><p class="text-secondary small">Carregando...</p></div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+          <h5 class="mb-3"><i class="bi bi-newspaper"></i> Notícias</h5>
+          <div id="listaNoticias"><p class="text-secondary small">Carregando...</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+const API = "http://localhost:3000";
+
+async function carregarHome() {
+  const [tarefas, atividades, alertas, sessoes, noticias] = await Promise.all([
+    fetch(`${API}/tarefas`).then(r => r.json()).catch(() => []),
+    fetch(`${API}/atividades`).then(r => r.json()).catch(() => []),
+    fetch(`${API}/alertas`).then(r => r.json()).catch(() => []),
+    fetch(`${API}/sessoes`).then(r => r.json()).catch(() => []),
+    fetch(`${API}/noticias`).then(r => r.json()).catch(() => [])
+  ]);
+
+  // Avatar
+  const user = JSON.parse(sessionStorage.getItem("usuarioLogado"));
+  if (user) {
+    document.getElementById("avatarLetra").textContent = user.nome?.charAt(0).toUpperCase() || "?";
+  }
+
+  // Stats
+  document.getElementById("statTarefas").textContent = tarefas.length;
+  document.getElementById("statTarefasLabel").textContent =
+    tarefas.length === 1 ? "tarefa cadastrada" : "tarefas cadastradas";
+
+  const totalHoras = atividades.reduce((s, a) => s + Number(a.horas || 0), 0);
+  document.getElementById("statHoras").textContent = totalHoras + "h";
+
+  const alertasAlto = alertas.filter(a => a.nivel === "alto").length;
+  document.getElementById("statAlertas").textContent = alertas.length;
+  document.getElementById("statAlertasLabel").textContent =
+    alertasAlto > 0 ? `${alertasAlto} de nível alto` : "nenhum de nível alto";
+
+  const ultimaSessao = sessoes.length > 0 ? sessoes[sessoes.length - 1] : null;
+  document.getElementById("ultimaSessao").textContent = ultimaSessao
+    ? `${ultimaSessao.tempo} (${ultimaSessao.modo})` : "nenhuma";
+
+  // Tarefas
+  const elTarefas = document.getElementById("listaTarefasHome");
+  if (tarefas.length === 0) {
+    elTarefas.innerHTML = `<p class="text-secondary small">Nenhuma tarefa. <a href="tarefas.html">Adicionar</a></p>`;
+  } else {
+    const proximas = [...tarefas].sort((a, b) => new Date(a.data) - new Date(b.data)).slice(0, 5);
+    elTarefas.innerHTML = proximas.map(t => `
+      <div class="tarefa-item ${t.tipo === 'prova' ? 'prova' : ''}">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <strong>${t.titulo}</strong>
+            <p class="mb-0 text-secondary small">${t.descricao || ""}</p>
+          </div>
+          <div class="text-end ms-3">
+            <span class="badge ${t.tipo === 'prova' ? 'bg-danger' : 'bg-primary'}">${t.tipo}</span>
+            <p class="mb-0 text-muted small mt-1">${formatarData(t.data)}</p>
+          </div>
+        </div>
+      </div>`).join("");
+  }
+
+  // Alertas
+  const CORES = { alto: "danger", medio: "warning", baixo: "success" };
+  const ICONES = { produtividade: "bi-graph-up", faltas: "bi-calendar-x", tarefas: "bi-check2-square", redesSociais: "bi-phone" };
+  const elAlertas = document.getElementById("listaAlertas");
+  if (alertas.length === 0) {
+    elAlertas.innerHTML = `<p class="text-secondary small"><i class="bi bi-check-circle text-success"></i> Nenhum alerta.</p>`;
+  } else {
+    elAlertas.innerHTML = alertas.slice(-5).reverse().map(a => `
+      <div class="mb-2 p-2 rounded border-start border-4 border-${CORES[a.nivel] || 'secondary'} bg-white shadow-sm">
+        <div class="d-flex justify-content-between">
+          <strong style="font-size:.85rem"><i class="bi ${ICONES[a.tipo] || 'bi-bell'} me-1"></i>${a.titulo}</strong>
+          <span class="badge bg-${CORES[a.nivel] || 'secondary'}">${a.nivel}</span>
+        </div>
+        <p class="mb-0 text-secondary" style="font-size:.78rem">${a.mensagem}</p>
+        <small class="text-muted">${a.aluno}</small>
+      </div>`).join("");
+  }
+
+  // Atividades
+  const elAtiv = document.getElementById("listaAtividadesHome");
+  if (atividades.length === 0) {
+    elAtiv.innerHTML = `<p class="text-secondary small">Nenhuma atividade. <a href="monitoramento.html">Adicionar</a></p>`;
+  } else {
+    elAtiv.innerHTML = atividades.slice(-6).reverse().map(a => `
+      <div class="sessao-item d-flex justify-content-between">
+        <span><i class="bi bi-book text-success me-1"></i>${a.titulo}</span>
+        <span class="text-muted">${a.horas}h</span>
+      </div>`).join("");
+  }
+
+  // Notícias
+  const elNoticias = document.getElementById("listaNoticias");
+  if (noticias.length === 0) {
+    elNoticias.innerHTML = `<p class="text-secondary small">Nenhuma notícia.</p>`;
+  } else {
+    elNoticias.innerHTML = noticias.map(n => `
+      <a href="${n.link}" target="_blank" class="text-decoration-none">
+        <div class="noticia-card card p-3 mb-2 shadow-sm">
+          <p class="mb-1 fw-semibold text-dark" style="font-size:.88rem">${n.titulo}</p>
+          <p class="mb-1 text-secondary" style="font-size:.78rem">${n.descricao}</p>
+          <small class="text-muted">${n.nomeSite} · ${n.dataPublicacao}</small>
+        </div>
+      </a>`).join("");
+  }
+}
+
+function formatarData(dataISO) {
+  if (!dataISO) return "—";
+  const [ano, mes, dia] = dataISO.split("-");
+  return `${dia}/${mes}/${ano}`;
+}
+
+carregarHome();
+</script>
+
+</body>
+</html>

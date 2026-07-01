@@ -1,0 +1,183 @@
+.topo{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.topo h1{
+    font-size: 40px;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.menu-monitoramento{
+    background: white;
+    padding: 8px;
+    border-radius: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.menu-monitoramento button{
+    width: 100%;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    background: transparent;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu-monitoramento .ativo{
+    background: #0d6efd;
+    color: white;
+}
+
+.titulo-resumo{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card-monitoramento{
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+.card-topo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-topo h1{
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.circulo{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 10px solid #0d6efd;
+    border-left-color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.barra{
+    width: 100%;
+    height: 12px;
+    background: #e5e5e5;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.progresso{
+    width: 0%;
+    height: 100%;
+    background: #0d6efd;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.grafico{
+    margin-top: 30px;
+    height: 140px;
+    position: relative;
+}
+
+.linha{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #0d6efd;
+    top: 50%;
+}
+
+.pontos{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 40%;
+}
+
+.pontos span{
+    width: 14px;
+    height: 14px;
+    background: #0d6efd;
+    border-radius: 50%;
+}
+
+.dias{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.sequencia-dias{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dia-check{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.dia-check.ativo{
+    background: #198754;
+    color: white;
+    border: none;
+}
+
+.total-box{
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.total-box span{
+    font-size: 40px;
+    font-weight: bold;
+    color: #198754;
+}
+
+.atividade{
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    height: 100%;
+}
+
+.atividade h5{
+    font-weight: bold;
+}
+
+@media(max-width:768px){
+    .topo h1{ font-size: 28px; }
+    .card-topo{ flex-direction: column; align-items: flex-start; }
+    .circulo{ width: 90px; height: 90px; font-size: 22px; }
+    .card-topo h1{ font-size: 38px; }
+    .dia-check{ width: 40px; height: 40px; font-size: 12px; }
+}

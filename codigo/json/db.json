@@ -1,0 +1,220 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Luiz Henrique",
+      "email": "luiz@gmail.com",
+      "senha": "123456",
+      "tipo": "aluno",
+      "dashboard": "aluno"
+    },
+    {
+      "id": "2",
+      "nome": "João da Silva",
+      "email": "joao@gmail.com",
+      "senha": "123456",
+      "tipo": "responsavel",
+      "dashboard": "responsavel"
+    },
+    {
+      "id": "3",
+      "nome": "Maria Oliveira",
+      "email": "maria@gmail.com",
+      "senha": "123456",
+      "tipo": "professor",
+      "dashboard": "professor"
+    },
+    {
+      "nome": "izhak sena",
+      "telefone": "988257465",
+      "cidade": "Vespasiano",
+      "tipo": "aluno",
+      "categoria": "Aluno",
+      "escola": "ves",
+      "email": "se@gmail.com",
+      "senha": "123",
+      "dashboard": "aluno",
+      "id": "ALaFQbwuTIU"
+    },
+    {
+      "nome": "joao",
+      "telefone": "311111111",
+      "cidade": "santa luzia",
+      "tipo": "aluno",
+      "categoria": "Aluno",
+      "escola": "puc",
+      "email": "joao@joao.com",
+      "senha": "123456",
+      "dashboard": "aluno",
+      "id": "niwhjfhUr8E"
+    },
+    {
+      "nome": "izhak",
+      "telefone": "10239193",
+      "cidade": "vespasiano",
+      "tipo": "professor",
+      "categoria": "Professor",
+      "escola": "puc",
+      "email": "izhak@gmail.com",
+      "senha": "123",
+      "dashboard": "professor",
+      "id": "Q1riQaEm8wU"
+    }
+  ],
+  "tarefas": [
+    {
+      "titulo": "prova fsi",
+      "descricao": "nao sei a materia",
+      "tipo": "prova",
+      "data": "02/07/2026",
+      "duracaoHoras": 2,
+      "duracaoMinutos": 30,
+      "id": "n3tNxtLAtHE"
+    },
+    {
+      "titulo": "sprint 3",
+      "descricao": "",
+      "tipo": "tarefa",
+      "data": "01/07/2026",
+      "duracaoHoras": 3,
+      "duracaoMinutos": 0,
+      "id": "ePLfdM53qhw"
+    },
+    {
+      "titulo": "prova atp",
+      "descricao": "estudar modulos, vetor e matriz",
+      "tipo": "tarefa",
+      "data": "",
+      "duracaoHoras": 1,
+      "duracaoMinutos": 20,
+      "id": "URxRiI3cnOk"
+    }
+  ],
+  "atividades": [
+    {
+      "titulo": "Estudar algoritmo",
+      "categoria": "Estudo",
+      "horas": "2",
+      "data": "2026-05-26",
+      "id": "_Dvkn125MNY"
+    },
+    {
+      "titulo": "Trabalho interdisciplinar",
+      "categoria": "Estudo",
+      "horas": "1",
+      "data": "2026-05-20",
+      "id": "0vo81ygEWyo"
+    }
+  ],
+  "sessoes": [
+    {
+      "modo": "cronometro",
+      "tempo": "10:00:03",
+      "data": "30/06/2026, 22:14:29",
+      "id": "36DSuzYjG60"
+    }
+  ],
+  "alertas": [
+    {
+      "aluno": "Pedro",
+      "curso": "ADS",
+      "tipo": "redesSociais",
+      "nivel": "baixo",
+      "titulo": "ves",
+      "mensagem": "as",
+      "id": "SXTXRQ5XgbU"
+    },
+    {
+      "aluno": "Pedro",
+      "curso": "ADS",
+      "tipo": "produtividade",
+      "nivel": "baixo",
+      "titulo": "ves",
+      "mensagem": "Bem-vindo, izhak sena!",
+      "id": "US3hSVbwrfw"
+    },
+    {
+      "aluno": "v",
+      "curso": "v",
+      "tipo": "produtividade",
+      "nivel": "baixo",
+      "titulo": "v",
+      "mensagem": "Bem-vindo, Luiz Henrique!",
+      "id": "Ewx06202-S0"
+    }
+  ],
+  "noticias": [
+    {
+      "id": "2",
+      "titulo": "Uso excessivo de dispositivo digital afeta desempenho de alunos",
+      "descricao": "Relatório do PISA mostrou que estudantes que utilizam dispositivos digitais por muitas horas apresentam menor desempenho acadêmico.",
+      "dataPublicacao": "05/12/2023",
+      "horaPublicacao": "07:38",
+      "nomeSite": "Agência Brasil",
+      "link": "https://agenciabrasil.ebc.com.br/educacao/noticia/2023-12/pisa-uso-excessivo-de-dispositivo-digital-afeta-desempenho-de-alunos"
+    },
+    {
+      "id": "3",
+      "titulo": "Pesquisa revela que excesso de redes sociais afeta concentração e desempenho de universitários",
+      "descricao": "Estudo identificou sintomas de cansaço mental e dificuldades de concentração entre universitários hiperconectados.",
+      "dataPublicacao": "19/02/2026",
+      "horaPublicacao": "14:00",
+      "nomeSite": "Portal Castello",
+      "link": "https://portalcastello.com.br/pesquisa-revela-que-excesso-de-redes-sociais-afeta-concentracao-e-desempenho-de-universitarios/"
+    },
+    {
+      "id": "4",
+      "titulo": "Tela demais, saúde de menos: estudo associa uso excessivo a dificuldades no aprendizado",
+      "descricao": "Pesquisa da UFLA relaciona tempo excessivo de tela com ansiedade, sintomas físicos e queda no desempenho acadêmico.",
+      "dataPublicacao": "18/04/2026",
+      "horaPublicacao": "10:30",
+      "nomeSite": "UFLA",
+      "link": "https://ciencia.ufla.br/reportagens/saude/1118-tela-demais-saude-de-menos-estudo-associa-uso-excessivo-a-ansiedade-dores-e-dificuldades-no-aprendizado"
+    }
+  ],
+  "alunos": [
+    {
+      "id": "1",
+      "nome": "Lucas",
+      "nota": 8.5,
+      "frequencia": 92,
+      "status": "Bom"
+    },
+    {
+      "id": "2",
+      "nome": "Ana",
+      "nota": 9,
+      "frequencia": 97,
+      "status": "Excelente"
+    },
+    {
+      "id": "3",
+      "nome": "Luiz Henrique",
+      "nota": 0,
+      "frequencia": 74,
+      "status": "Ruim"
+    },
+    {
+      "id": "4",
+      "nome": "João da Silva",
+      "nota": 0,
+      "frequencia": 75,
+      "status": "Ruim"
+    },
+    {
+      "id": "5",
+      "nome": "Maria Oliveira",
+      "nota": 0,
+      "frequencia": 75,
+      "status": "Ruim"
+    },
+    {
+      "id": "ALaFQbwuTIU",
+      "nome": "izhak sena",
+      "nota": 0,
+      "frequencia": 75,
+      "status": "Ruim"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
